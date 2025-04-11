@@ -20,7 +20,7 @@ resource "aws_ebs_volume" "example" {
 }
 
 resource "aws_s3_bucket_acl" "my_acl" {
-  bucket = aws_s3_bucket.insecure.id
+  bucket = aws_s3_bucket.insecure-bucket.id
   acl    = "private"
 }
 
