@@ -18,3 +18,15 @@ resource "aws_ebs_volume" "example" {
     Name = "insecure"
   }
 }
+
+resource "aws_s3_bucket_acl" "my_acl" {
+  bucket = aws_s3_bucket.insecure.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "my_versioning" {
+  bucket = aws_s3_bucket.insecure-bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
